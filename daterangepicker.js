@@ -750,7 +750,6 @@
 
                 this.updateInputText();
 
-                this.hideCalendars();
                 this.hide();
                 this.element.trigger('apply.daterangepicker', this);
             }
