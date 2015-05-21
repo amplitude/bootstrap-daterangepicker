@@ -730,10 +730,14 @@
 
         clickRange: function (e) {
             var label = e.target.innerHTML;
+            this.setRange(label);
+        },
+
+        setRange: function (label) {
             this.chosenLabel = label;
             if (label == this.locale.customRangeLabel) {
                 this.showCalendars();
-            } else {
+            } else if (this.ranges[label]) {
                 var dates = this.ranges[label];
 
                 this.startDate = dates[0];

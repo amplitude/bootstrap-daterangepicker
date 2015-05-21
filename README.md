@@ -114,6 +114,8 @@ Several functions are provided for updating the picker's option and state after 
 
 `setEndDate(Date/moment/string)`: Sets the date range picker's currently selected end date to the provided date
 
+`setRange(string)`: Sets the date range picker's currently selected range to the provided range, assuming the range exists in `options.ranges`
+
 Example usage:
 
 ````
