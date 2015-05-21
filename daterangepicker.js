@@ -370,6 +370,10 @@
                 this.container.find('.ranges').prepend(list);
             }
 
+            if (typeof options.displayRangeLabels === 'boolean') {
+                this.displayRangeLabels = options.displayRangeLabels;
+            }
+
             if (typeof callback === 'function') {
                 this.cb = callback;
             }
@@ -720,7 +724,13 @@
 
         updateInputText: function() {
             if (this.element.is('input') && !this.singleDatePicker) {
-                this.element.val(this.startDate.format(this.format) + this.separator + this.endDate.format(this.format));
+                if (this.displayRangeLabels && this.chosenLabel && this.chosenLabel !== this.locale.customRangeLabel) {
+                    this.element.val(this.chosenLabel);
+                    this.element.addClass('predefined-range');
+                } else {
+                    this.element.val(this.startDate.format(this.format) + this.separator + this.endDate.format(this.format));
+                    this.element.removeClass('predefined-range');
+                }
                 this.element.trigger('change');
             } else if (this.element.is('input')) {
                 this.element.val(this.endDate.format(this.format));
