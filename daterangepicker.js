@@ -96,10 +96,14 @@
         if (this.element.is('input')) {
             this.element.on({
                 'click.daterangepicker': $.proxy(this.show, this),
-                'focus.daterangepicker': $.proxy(this.show, this),
-                'keyup.daterangepicker': $.proxy(this.updateFromControl, this),
-                'keydown.daterangepicker': $.proxy(this.keydown, this)
+                'focus.daterangepicker': $.proxy(this.show, this)
             });
+            if (!this.element.attr('readonly')) {
+                this.element.on({
+                    'keyup.daterangepicker': $.proxy(this.updateFromControl, this),
+                    'keydown.daterangepicker': $.proxy(this.keydown, this)
+                });
+            }
         } else {
             this.element.on('click.daterangepicker', $.proxy(this.toggle, this));
         }
