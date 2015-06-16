@@ -581,7 +581,7 @@
                     right: parentRightEdge - this.element.offset().left - this.element.outerWidth(),
                     left: 'auto'
                 });
-                if (this.container.offset().left < 0) {
+                if (this.container.offset().left < 9) {
                     this.container.css({
                         right: 'auto',
                         left: 9
@@ -594,7 +594,7 @@
                             - this.container.outerWidth() / 2,
                     right: 'auto'
                 });
-                if (this.container.offset().left < 0) {
+                if (this.container.offset().left < 9) {
                     this.container.css({
                         right: 'auto',
                         left: 9
